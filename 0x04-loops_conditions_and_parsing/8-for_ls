@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#prints the contents of the current dir.
+#Only displays the part of the name after the first dash. 
+
+lst=$(ls)
+for j in $lst; do
+  echo "$j" | cut -d '-' -f2
+done
