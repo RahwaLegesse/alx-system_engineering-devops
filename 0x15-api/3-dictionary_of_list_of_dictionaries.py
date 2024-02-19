@@ -1,39 +1,39 @@
 #!/usr/bin/python3
 
 """
-Python script SON format.
+Python script that exports Python script that exports
 """
 
 from requests import get
 import json
 
 if __name__ == "__main__":
-    url = get('https://jsonplaceholder.typicode.com/todos/')
-    info = url.json()
+    ans = get('https://jsonplaceholder.typicode.com/todos/')
+    da = ans.json()
 
-    rw = []
-    url2 = get('https://jsonplaceholder.typicode.com/users')
-    data = url2.json()
+    roww = []
+    ans2 = get('https://jsonplaceholder.typicode.com/users')
+    da2 = ans2.json()
 
-    new_1 = {}
+    new = {}
 
-    for k in data:
+    for k in da2:
 
-        rw = []
-        for j in info:
+        roww = []
+        for j in da:
 
-            new_2 = {}
+            new2 = {}
 
             if k['id'] == j['userId']:
 
-                new_2['username'] = k['username']
-                new_2['task'] = j['title']
-                new_2['completed'] = j['completed']
-                rw.append(new_2)
+                new2['username'] = k['username']
+                new2['task'] = j['title']
+                new2['completed'] = j['completed']
+                roww.append(new2)
 
-        new_1[j['id']] = rw
+        new[k['id']] = roww
 
     with open("todo_all_employees.json",  "w") as y:
 
-        json_obj = json.dumps(new_1)
+        json_obj = json.dumps(new)
         y.write(json_obj)
