@@ -1,39 +1,39 @@
 #!/usr/bin/python3
 
 """
-Python script.
+Python script SON format.
 """
 
 from requests import get
 import json
 
 if __name__ == "__main__":
-    url= get('https://jsonplaceholder.typicode.com/todos/')
+    url = get('https://jsonplaceholder.typicode.com/todos/')
     info = url.json()
 
     rw = []
-    resp = get('https://jsonplaceholder.typicode.com/users')
-    data = resp.json()
+    url2 = get('https://jsonplaceholder.typicode.com/users')
+    data = url2.json()
 
-    new = {}
+    new_1 = {}
 
-    for i in data:
+    for k in data:
 
         rw = []
         for j in info:
 
-            new2 = {}
+            new_2 = {}
 
-            if i['id'] == j['userId']:
+            if k['id'] == j['userId']:
 
-                new2['username'] = i['username']
-                new2['task'] = j['title']
-                new2['completed'] = j['completed']
-                rw.append(new2)
+                new_2['username'] = k['username']
+                new_2['task'] = j['title']
+                new_2['completed'] = j['completed']
+                rw.append(new_2)
 
-        new[i['id']] = rw
+        new_1[j['id']] = rw
 
-    with open("todo_all_employees.json",  "w") as x:
+    with open("todo_all_employees.json",  "w") as y:
 
-        json_obj = json.dumps(new)
-        x.write(json_obj)
+        json_obj = json.dumps(new_1)
+        y.write(json_obj)
