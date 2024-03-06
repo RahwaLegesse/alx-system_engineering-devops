@@ -1,5 +1,6 @@
 #!/usr/bin/python3        
-""" If an invalid subreddit is given,
+"""
+If an invalid subreddit is given,
 the function should return 0.
 """
 import requests
@@ -18,4 +19,4 @@ def number_of_subscribers(subreddit):
         return (response.get('data').get('subscribers'))
 
     else:
-        return (0)0)
+        return (0)
