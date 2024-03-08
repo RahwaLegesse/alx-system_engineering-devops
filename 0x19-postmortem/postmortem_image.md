@@ -7,5 +7,18 @@
 
 
 
+       Management summery
+Duration of the outage it was around 2 hours
+Impact (what service was down/slow) there was online test in that day for all graduating students of 2011.
+Root cause: shutting down of the electricity around the university.
+Issue detected: 20 minutes before the online test starting time.
+How was the issue detected: the instructors of the university found out.
+Action taken: they began to start up the generator.
+Misleading investigation/debugging paths that were taken: the generator was shut down for long time .so it takes a long time to start up the generator.
+Which team/individuals was the incident escalated to: all electricians and ICT members of the Mekelle University.
+How the incident was resolved: after 30 minutes the generator works.
+
+
+
 
 
