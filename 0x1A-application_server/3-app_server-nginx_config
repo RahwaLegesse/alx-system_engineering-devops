@@ -1,0 +1,25 @@
+# configure ngix serve to odd and even
+
+server {
+        listen 80;
+        listen [::]:80;
+        add_header X-Served-By $HOSTNAME;
+
+        # ip adress
+        server_name 35.175.126.203;
+
+        # Serve one-page
+        location = /airbnb-onepage/ {
+                proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
+        }
+
+        # Serve even or odd
+        location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
+                proxy_pass http://127.0.0.1:5001/number_odd_or_even/$1;
+        }
+
+        error_page 404 /404.html;
+        location = /404.html {
+            root /var/www/school/errors/;
+        }
+}
